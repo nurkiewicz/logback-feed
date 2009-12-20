@@ -32,8 +32,8 @@ import com.sun.syndication.io.FeedException;
 import com.sun.syndication.io.SyndFeedOutput;
 
 /**
- * @author Tomasz Nurkiewicz (tnurkiewicz)
- * @since CR-7304, 6.0.10, 2009-12-12, 21:15:21
+ * @author Tomasz Nurkiewicz (nurkiewicz)
+ * @since 0.0.1, 2009-12-12, 21:15:21
  */
 public class LogbackFeedGenerator {
 
@@ -112,7 +112,7 @@ public class LogbackFeedGenerator {
 		entry.setAuthor(author);
 		entry.setPublishedDate(new Date(event.getTimeStamp()));
 		entry.setUri(uri + "/logback/" + event.getId());
-		//TODO [tnurkiewicz] Make link generation pluggable
+		//TODO [nurkiewicz] Make link generation pluggable
 		//entry.setLink("http://www.example.com");
 		entry.setCategories(getCategories(event));
 		return entry;

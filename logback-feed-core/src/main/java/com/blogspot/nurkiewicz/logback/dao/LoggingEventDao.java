@@ -6,8 +6,8 @@ import java.util.List;
 import ch.qos.logback.classic.spi.ILoggingEvent;
 
 /**
- * @author Tomasz Nurkiewicz (tnurkiewicz)
- * @since CR-7304, 6.0.10, 2009-12-06, 21:09:23
+ * @author Tomasz Nurkiewicz (nurkiewicz)
+ * @since 0.0.1, 2009-12-06, 21:09:23
  */
 public interface LoggingEventDao {
 

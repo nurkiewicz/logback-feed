@@ -10,8 +10,8 @@ import ch.qos.logback.classic.spi.IThrowableProxy;
 import ch.qos.logback.classic.Level;
 
 /**
- * @author Tomasz Nurkiewicz (tnurkiewicz)
- * @since CR-7304, 6.0.10, 2009-12-06, 21:16:08
+ * @author Tomasz Nurkiewicz (nurkiewicz)
+ * @since 0.0.1, 2009-12-06, 21:16:08
  */
 public class LoggingEvent implements ILoggingEvent {
 	private final long id;

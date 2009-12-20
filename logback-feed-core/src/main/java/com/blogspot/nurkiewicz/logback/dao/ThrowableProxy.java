@@ -4,8 +4,8 @@ import ch.qos.logback.classic.spi.IThrowableProxy;
 import ch.qos.logback.classic.spi.StackTraceElementProxy;
 
 /**
- * @author Tomasz Nurkiewicz (tnurkiewicz)
- * @since CR-7304, 6.0.10, 2009-12-06, 23:20:36
+ * @author Tomasz Nurkiewicz (nurkiewicz)
+ * @since 0.0.1, 2009-12-06, 23:20:36
  */
 public class ThrowableProxy implements IThrowableProxy{
 	private final StackTraceElementProxy[] stackTraceElementsProxy;

@@ -10,8 +10,8 @@ import ch.qos.logback.classic.spi.ILoggingEvent;
 /**
  * Adapter decoupling DAO layer from feed generation.
  *
- * @author Tomasz Nurkiewicz (tnurkiewicz)
- * @since CR-7309, 6.0.10, 2009-12-20, 18:55:25
+ * @author Tomasz Nurkiewicz (nurkiewicz)
+ * @since 0.0.1, 2009-12-20, 18:55:25
  */
 public class JdbcLoggingEventsSource implements LoggingEventsSource {
 

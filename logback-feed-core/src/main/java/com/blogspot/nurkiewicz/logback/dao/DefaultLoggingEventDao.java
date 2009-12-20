@@ -23,8 +23,8 @@ import ch.qos.logback.classic.spi.ILoggingEvent;
 import com.blogspot.nurkiewicz.logback.LoggingEvent;
 
 /**
- * @author Tomasz Nurkiewicz (tnurkiewicz)
- * @since CR-7304, 6.0.10, 2009-12-06, 21:09:51
+ * @author Tomasz Nurkiewicz (nurkiewicz)
+ * @since 0.0.1, 2009-12-06, 21:09:51
  */
 public class DefaultLoggingEventDao implements LoggingEventDao {
 

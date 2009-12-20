@@ -1,8 +1,8 @@
 package com.blogspot.nurkiewicz.logback.feed;
 
 /**
- * @author Tomasz Nurkiewicz (tnurkiewicz)
- * @since CR-7304, 6.0.10, 2009-12-12, 23:52:51
+ * @author Tomasz Nurkiewicz (nurkiewicz)
+ * @since 0.0.1, 2009-12-12, 23:52:51
  */
 public class LogbackFeedException extends RuntimeException {
 

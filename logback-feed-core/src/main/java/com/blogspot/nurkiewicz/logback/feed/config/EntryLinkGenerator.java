@@ -5,8 +5,8 @@ import java.util.Collection;
 import com.blogspot.nurkiewicz.logback.LoggingEvent;
 
 /**
- * @author Tomasz Nurkiewicz (tnurkiewicz)
- * @since CR-7309, 6.0.10, 2009-12-20, 15:14:21
+ * @author Tomasz Nurkiewicz (nurkiewicz)
+ * @since 0.0.1, 2009-12-20, 15:14:21
  */
 public interface EntryLinkGenerator {
 
