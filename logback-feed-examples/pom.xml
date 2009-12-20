@@ -9,15 +9,6 @@
 	<artifactId>logback-feed-examples</artifactId>
 	<packaging>war</packaging>
 	<name>Logback-feed example application</name>
-	<developers>
-		<developer>
-			<name>Tomasz Nurkiewicz</name>
-		</developer>
-	</developers>
-
-	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-	</properties>
 
 	<repositories>
 		<repository>

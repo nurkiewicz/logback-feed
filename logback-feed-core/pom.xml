@@ -9,11 +9,6 @@
 	<artifactId>logback-feed-core</artifactId>
 	<packaging>jar</packaging>
 	<name>logback-feed library</name>
-	<developers>
-		<developer>
-			<name>Tomasz Nurkiewicz</name>
-		</developer>
-	</developers>
 
 	<dependencies>
 		<!-- Testing -->
