@@ -1,7 +1,5 @@
 package com.blogspot.nurkiewicz.logback.feed.config;
 
-import java.util.Collection;
-
 import com.blogspot.nurkiewicz.logback.LoggingEvent;
 
 /**
@@ -11,7 +9,5 @@ import com.blogspot.nurkiewicz.logback.LoggingEvent;
 public interface EntryLinkGenerator {
 
 	String generateLinkForEvent(LoggingEvent event);
-
-	Collection<String> generateLinksForEvent(LoggingEvent event);
 
 }
