@@ -28,6 +28,8 @@ public class FeedConfig {
 	private String author;
 	private String uri;
 	private String feedType = "atom_1.0";
+	private boolean includeLoggerNameInCategories = true;
+	private boolean includeLoggerLevelInCategories = true;
 
 	public FeedConfig() {
 		try {
@@ -37,6 +39,10 @@ public class FeedConfig {
 		} catch (IOException e) {
 			throw new LogbackFeedException(e);
 		}
+	}
+
+	public FeedConfig(String titlePattern, String contentPattern) {
+		init(titlePattern, contentPattern);
 	}
 
 
@@ -52,6 +58,17 @@ public class FeedConfig {
 		layout.start();
 	}
 
+	public String getUriForEvent(LoggingEvent event) {
+		return new StringBuilder(uri).append("/logback/").append(event.getId()).toString();
+	}
+
+	public String layoutContent(ILoggingEvent event) {
+		return contentLayout.doLayout(event);
+	}
+
+	public String layoutTitle(LoggingEvent event) {
+		return titleLayout.doLayout(event);
+	}
 
 	public EntryLinkGenerator getEntryLinkGenerator() {
 		return entryLinkGenerator;
@@ -112,11 +129,19 @@ public class FeedConfig {
 		this.feedType = feedType;
 	}
 
-	public String getUriForEvent(LoggingEvent event) {
-		return uri + "/logback/" + event.getId();
+	public boolean isIncludeLoggerNameInCategories() {
+		return includeLoggerNameInCategories;
 	}
 
-	public String layoutContent(ILoggingEvent event) {
-		return contentLayout.doLayout(event);
+	public void setIncludeLoggerNameInCategories(boolean includeLoggerNameInCategories) {
+		this.includeLoggerNameInCategories = includeLoggerNameInCategories;
+	}
+
+	public boolean isIncludeLoggerLevelInCategories() {
+		return includeLoggerLevelInCategories;
+	}
+
+	public void setIncludeLoggerLevelInCategories(boolean includeLoggerLevelInCategories) {
+		this.includeLoggerLevelInCategories = includeLoggerLevelInCategories;
 	}
 }

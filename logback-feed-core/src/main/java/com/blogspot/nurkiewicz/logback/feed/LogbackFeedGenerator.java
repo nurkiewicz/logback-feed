@@ -2,7 +2,7 @@ package com.blogspot.nurkiewicz.logback.feed;
 
 import java.io.IOException;
 import java.io.Writer;
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collections;
 import java.util.Date;
@@ -36,11 +36,14 @@ public class LogbackFeedGenerator {
 	private static final Logger log = LoggerFactory.getLogger(LogbackFeedGenerator.class);
 
 	private LoggingEventsSource loggingEventsSource;
-	private FeedConfig feedConfig = new FeedConfig();
+	private FeedConfig feedConfig;
 
+	public LogbackFeedGenerator() {
+		feedConfig = new FeedConfig();
+	}
 
 	public LogbackFeedGenerator(String titlePattern, String contentPattern) {
-		init(titlePattern, contentPattern);
+		feedConfig = new FeedConfig(titlePattern, contentPattern);
 	}
 
 	public SyndFeed createFeedForLogsAfter(Calendar date) {
@@ -80,7 +83,7 @@ public class LogbackFeedGenerator {
 
 	private SyndEntry createEntryFromEvent(LoggingEvent event) {
 		final SyndEntry entry = new SyndEntryImpl();
-		entry.setTitle(feedConfig.getTitleLayout().doLayout(event));
+		entry.setTitle(feedConfig.layoutTitle(event));
 		final SyndContent content = createEntryDescription(event);
 		entry.setDescription(content);
 		entry.setContents(Collections.singletonList(content));
@@ -93,14 +96,21 @@ public class LogbackFeedGenerator {
 	}
 
 	private List<SyndCategory> getCategories(LoggingEvent event) {
-		final SyndCategory levelCategory = new SyndCategoryImpl();
-		levelCategory.setName(event.getLevel().toString());
+		List<SyndCategory> categories = new ArrayList<SyndCategory>(2);
 
-		final SyndCategory loggerCategory = new SyndCategoryImpl();
-		final String loggerName = event.getLoggerName();
-		loggerCategory.setName(StringUtils.substringAfterLast(loggerName, "."));
+		if (feedConfig.isIncludeLoggerNameInCategories()) {
+			final SyndCategory loggerCategory = new SyndCategoryImpl();
+			final String loggerName = event.getLoggerName();
+			loggerCategory.setName(StringUtils.substringAfterLast(loggerName, "."));
+			categories.add(loggerCategory);
+		}
 
-		return Arrays.asList(levelCategory, loggerCategory);
+		if (feedConfig.isIncludeLoggerLevelInCategories()) {
+			final SyndCategory levelCategory = new SyndCategoryImpl();
+			levelCategory.setName(event.getLevel().toString());
+			categories.add(levelCategory);
+		}
+		return categories;
 	}
 
 	private SyndContent createEntryDescription(ILoggingEvent event) {
