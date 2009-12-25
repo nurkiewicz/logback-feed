@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<configuration>
+
+	<appender name="DB" class="ch.qos.logback.classic.db.DBAppender">
+		<connectionSource class="ch.qos.logback.core.db.DriverManagerConnectionSource">
+			<driverClass>org.h2.Driver</driverClass>
+			<url>jdbc:h2:~/.nurkiewicz/logback-feed/db;AUTO_SERVER=TRUE</url>
+			<user>sa</user>
+			<password/>
+		</connectionSource>
+	</appender>
+
+	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+		<layout class="ch.qos.logback.classic.PatternLayout">
+			<Pattern>%-5level [%d{HH:mm:ss,SSS}][%logger{0}] %m%n</Pattern>
+		</layout>
+	</appender>
+
+	<logger name="org.springframework" level="INFO"/>
+	<logger name="com.mchange" level="INFO"/>
+
+	<root level="ALL">
+		<appender-ref ref="STDOUT" />
+		<appender-ref ref="DB" />
+	</root>
+</configuration>

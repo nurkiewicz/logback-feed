@@ -84,9 +84,7 @@ public class LogbackFeedGenerator {
 	private SyndEntry createEntryFromEvent(LoggingEvent event) {
 		final SyndEntry entry = new SyndEntryImpl();
 		entry.setTitle(feedConfig.layoutTitle(event));
-		final SyndContent content = createEntryDescription(event);
-		entry.setDescription(content);
-		entry.setContents(Collections.singletonList(content));
+		entry.setDescription(createEntryDescription(event));
 		entry.setAuthor(feedConfig.getAuthor());
 		entry.setPublishedDate(new Date(event.getTimeStamp()));
 		entry.setUri(feedConfig.getUriForEvent(event));
