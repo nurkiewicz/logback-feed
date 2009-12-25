@@ -30,7 +30,7 @@ public class LogbackFeedGeneratorTest {
 		loggingEventsSourceMock = mock(LoggingEventsSource.class);
 		feedGenerator = new LogbackFeedGenerator();
 		feedGenerator.setLoggingEventsSource(loggingEventsSourceMock);
-		feedGenerator.setUri("http://nurkiewicz.blogspot.com");
+		feedGenerator.getFeedConfig().setUri("http://nurkiewicz.blogspot.com");
 	}
 
 	@Test

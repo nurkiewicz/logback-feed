@@ -36,7 +36,7 @@ public class LogbackFeedGeneratorIntTest {
 		DataSource dataSource = new DbTestSetup().createAndSetupDatabase();
 		feedGenerator = new LogbackFeedGenerator();
 		feedGenerator.setLoggingEventsSource(new JdbcLoggingEventsSource(new DefaultLoggingEventDao(dataSource)));
-		feedGenerator.setUri("http://nurkiewicz.blogspot.com");
+		feedGenerator.getFeedConfig().setUri("http://nurkiewicz.blogspot.com");
 	}
 
 	@Test

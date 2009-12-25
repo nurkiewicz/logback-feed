@@ -14,17 +14,21 @@
 	</bean>
 
 	<bean id="logbackFeedController" class="com.blogspot.nurkiewicz.logback.feed.LogbackFeedController">
-		<property name="logbackFeedGenerator" ref="dbLogbackFeedGenerator"/>
+		<property name="logbackFeedGenerator" ref="logbackFeedGenerator"/>
 	</bean>
 
-	<bean id="dbLogbackFeedGenerator" class="com.blogspot.nurkiewicz.logback.feed.LogbackFeedGenerator">
+	<bean id="logbackFeedGenerator" class="com.blogspot.nurkiewicz.logback.feed.LogbackFeedGenerator">
 		<property name="loggingEventsSource" ref="jdbcLoggingEventsSource"/>
 
+		<property name="feedConfig" ref="feedConfig"/>
+	</bean>
+	<bean id="feedConfig" class="com.blogspot.nurkiewicz.logback.feed.config.FeedConfig">
 		<property name="uri" value="http://www.example.com"/>		<!-- Change this! -->
 		<property name="feedType" value="atom_1.0"/>		<!-- Default -->
 		<property name="author" value="Tomasz Nurkiewicz"/>
 		<property name="feedTitle" value="Example application for logback-feed library"/>
 	</bean>
+
 	<bean id="jdbcLoggingEventsSource" class="com.blogspot.nurkiewicz.logback.feed.impl.JdbcLoggingEventsSource">
 		<constructor-arg ref="defaultLoggingEventDao" />
 	</bean>
