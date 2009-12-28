@@ -70,6 +70,7 @@ public class LogbackFeedGeneratorIntTest {
 		assertThat(feedXml, containsString(randomMessage));
 		assertThat(feedXml, containsString("term=\"INFO\""));
 		assertThat(feedXml, containsString("term=\"TEST\""));
+		assertThat(feedXml, containsString("content type=\"html\""));
 	}
 
 }

@@ -70,8 +70,8 @@ public class FeedConfig {
 		return titleLayout.doLayout(event);
 	}
 
-	public EntryLinkGenerator getEntryLinkGenerator() {
-		return entryLinkGenerator;
+	public String generateLinkForEvent(LoggingEvent loggingEvent) {
+		return entryLinkGenerator.generateLinkForEvent(loggingEvent);
 	}
 
 	public void setEntryLinkGenerator(EntryLinkGenerator entryLinkGenerator) {

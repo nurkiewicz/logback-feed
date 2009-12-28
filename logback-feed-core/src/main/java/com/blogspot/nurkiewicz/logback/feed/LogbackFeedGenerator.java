@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.Writer;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
@@ -83,11 +84,11 @@ public class LogbackFeedGenerator {
 	private SyndEntry createEntryFromEvent(LoggingEvent event) {
 		final SyndEntry entry = new SyndEntryImpl();
 		entry.setTitle(feedConfig.layoutTitle(event));
-		entry.setDescription(createEntryDescription(event));
+		entry.setContents(Collections.singletonList(createEntryContents(event)));
 		entry.setAuthor(feedConfig.getAuthor());
 		entry.setPublishedDate(new Date(event.getTimeStamp()));
 		entry.setUri(feedConfig.getUriForEvent(event));
-		entry.setLink(feedConfig.getEntryLinkGenerator().generateLinkForEvent(event));
+		entry.setLink(feedConfig.generateLinkForEvent(event));
 		entry.setCategories(getCategories(event));
 		return entry;
 	}
@@ -110,11 +111,11 @@ public class LogbackFeedGenerator {
 		return categories;
 	}
 
-	private SyndContent createEntryDescription(ILoggingEvent event) {
+	private SyndContent createEntryContents(ILoggingEvent event) {
 		SyndContent content = new SyndContentImpl();
 		content.setValue(feedConfig.layoutContent(event));
 		content.setMode(Content.HTML);
-		content.setType("text/html");
+		content.setType("html");
 		return content;
 	}
 
