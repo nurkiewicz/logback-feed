@@ -8,7 +8,7 @@
 	</parent>
 	<artifactId>logback-feed-core</artifactId>
 	<packaging>jar</packaging>
-	<name>logback-feed library</name>
+	<name>Logback-feed library</name>
 
 	<dependencies>
 		<!-- Testing -->

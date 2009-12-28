@@ -8,7 +8,7 @@
 	</parent>
 	<artifactId>logback-feed-spring</artifactId>
 	<packaging>jar</packaging>
-	<name>Logback Feed Spring integration</name>
+	<name>Logback-feed Spring integration</name>
 
 	<dependencies>
 		<dependency>

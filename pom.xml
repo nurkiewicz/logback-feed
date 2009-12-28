@@ -5,7 +5,7 @@
 	<artifactId>logback-feed</artifactId>
 	<packaging>pom</packaging>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>logback-feed Project</name>
+	<name>Logback-feed Project</name>
 	<developers>
 		<developer>
 			<name>Tomasz Nurkiewicz</name>
@@ -37,8 +37,8 @@
 				<dependencies>
 					<dependency>
 						<groupId>org.apache.maven.scm</groupId>
-						<artifactId>maven-scm-providers-git</artifactId>
-						<version>1.1</version>
+						<artifactId>maven-scm-provider-gitexe</artifactId>
+						<version>1.2</version>
 					</dependency>
 				</dependencies>
 			</plugin>
@@ -48,8 +48,8 @@
 				<dependencies>
 					<dependency>
 						<groupId>org.apache.maven.scm</groupId>
-						<artifactId>maven-scm-providers-git</artifactId>
-						<version>1.1</version>
+						<artifactId>maven-scm-provider-gitexe</artifactId>
+						<version>1.2</version>
 					</dependency>
 				</dependencies>
 			</plugin>
