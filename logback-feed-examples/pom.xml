@@ -18,7 +18,18 @@
 			<url>http://no-commons-logging.zapto.org/mvn2</url>
 		</repository>
 	</repositories>
+
+	<properties>
+		<jdbc.url>jdbc:h2:db/db;AUTO_SERVER=TRUE</jdbc.url>
+	</properties>
+
 	<build>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<filtering>true</filtering>
+			</resource>
+		</resources>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -38,6 +49,15 @@
 
 		</plugins>
 	</build>
+
+	<profiles>
+		<profile>
+			<id>dev</id>
+			<properties>
+				<jdbc.url>jdbc:h2:~/.nurkiewicz/logback-feed/db;AUTO_SERVER=TRUE</jdbc.url>
+			</properties>
+		</profile>
+	</profiles>
 
 	<dependencies>
 		<!-- Testing -->
