@@ -19,6 +19,7 @@ public class LogbackFeedController extends AbstractController {
 	protected ModelAndView handleRequestInternal(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		final Calendar date = Calendar.getInstance();
 		date.add(Calendar.DAY_OF_MONTH, -30);
+		response.setContentType("application/atom+xml");
 		logbackFeedGenerator.createAndOutputFeed(date, response.getWriter());
 		return null;
 	}
